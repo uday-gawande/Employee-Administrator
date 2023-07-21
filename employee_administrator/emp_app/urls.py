@@ -16,8 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('emp_app.urls'))
+    # no need to add () after index .. name is sufficient
+    path('', views.index, name = 'index'),
+    # now here we need to create function in views.py so that it routes 
+    
+    path('all_emp', views.index, name = 'all_emp'),
+    path('add_emp', views.index, name = 'add_emp'),
+    path('remove_emp', views.index, name = 'remove_emp'),
+    path('filter_emp', views.index, name = 'filter_emp'),
+    # for simplicity i have given the function name same as the names
 ]
